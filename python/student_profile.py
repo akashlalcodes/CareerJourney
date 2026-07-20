@@ -1,55 +1,84 @@
-name = input("Enter your name :")
-age = int(input("Enter your age: "))
-uni = input ("Enter the name of your university :")
-degree = input ("Enter the name of the degree :")
-dream_job = input ("What is your dream job :")
-gpa = float(input ("Enter your GPA :"))
-country =input ("Name of country :")
-fav_language = input ("Enter your favorite programming language :")
-# All the needed information is being extracted from the user
-name = name.capitalize()
-uni = uni.capitalize()
-degree = degree.capitalize()
-dream_job = dream_job.capitalize()
-country = country.capitalize()
-fav_language = fav_language.capitalize()
 
 
-print ("")
-print ("")
-print ("")
-
-print("==================================")
-print("       STUDENT PROFILE MANAGER")
-print("==================================")
-print ("name             : ",name)
-print ('age              : ',age)
-print ('university       : ',uni )
-print ('degree           : ',degree)
-print ('dream job        : ',dream_job)
-print ('gpa              : ',gpa )
-print("country           : ", country)
-print("favorite language : ", fav_language)
-print ("")
-print ("")
-# The details her being displayed in a orderly fashion
-
-print("----------------------------------")
+def welcome():
+    print("==================================")
+    print("       STUDENT PROFILE MANAGER")
+    print("==================================")
 
 
-print (f"THANK YOU {name}!")
-print(f"Good luck becoming a {dream_job}")
-print ("Have a wonderful delighted day")
-# A personalized thank you message 
 
-print ("next year you will turn ",age+1)
+def get_details():
 
-if age < 25 :
-    print("You are early in your career!!")
-else:
-    print("Keep growing and learning!")
+    name = input("Enter your name : ")
+    age = int(input("Enter your age: "))
+    uni = input ("Enter the name of your university : ")
+    degree = input ("Enter the name of the degree : ")
+    dream_job = input ("What is your dream job : ")
+    gpa = float(input ("Enter your GPA : "))
+    country =input ("Name of country : ")
+    fav_language = input ("Enter your favorite programming language : ")
+    # All the needed information is being extracted from the user
+    name = name.capitalize()
+    uni = uni.capitalize()
+    degree = degree.capitalize()
+    dream_job = dream_job.capitalize()
+    country = country.capitalize()
+    fav_language = fav_language.capitalize()
 
-if gpa > 3.5 :
-    print ("Excellent GPA! Keep it up.")
-else :
-    print("Focus on improving your skills.")
+    return name, age, uni, degree, dream_job, gpa, country, fav_language
+    
+
+
+def display_profile(name, age, uni, degree, dream_job, gpa, country, fav_language):
+
+    print ("")
+    print ("")
+    print ("")
+
+    print(f"Name             : {name}")
+    print(f"Age              : {age}")
+    print(f"University       : {uni}")
+    print(f"Degree           : {degree}")
+    print(f"Dream Job        : {dream_job}")
+    print(f"GPA              : {gpa}")
+    print(f"Country          : {country}")
+    print(f"Favorite Language: {fav_language}")
+
+
+
+    print("----------------------------------")
+
+
+
+def show_feedback(name, dream_job, age, gpa):
+
+    print(f"THANK YOU {name}!")
+    print(f"Good luck becoming a {dream_job}")
+    print("Have a wonderful delightful day")
+
+    print(f"Next year you will turn {age+1}")
+
+    if age < 25:
+        print("You are early in your career!!")
+    else:
+        print("Keep growing and learning!")
+
+    if gpa > 3.5:
+        print("Excellent GPA! Keep it up.")
+    else:
+        print("Focus on improving your skills.")
+
+
+
+
+def main():
+    welcome()
+
+    name, age, uni, degree, dream_job, gpa, country, fav_language = get_details()
+
+    display_profile(name, age, uni, degree, dream_job, gpa, country, fav_language)
+
+    show_feedback(name, dream_job, age, gpa)
+
+
+main()
